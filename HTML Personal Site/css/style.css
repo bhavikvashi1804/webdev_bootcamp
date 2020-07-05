@@ -14,6 +14,11 @@ hr{
 }
 
 
+img:hover{
+    background-color: gold;
+    width: 30%;
+}
+
 h1{
     color: orange;
 
