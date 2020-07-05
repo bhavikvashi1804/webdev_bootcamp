@@ -1,3 +1,14 @@
 body{
     background-color: cyan;
 }
+
+div{
+    background-color: #ff165d;
+}
+
+body{
+    margin: 0;
+}
+h1{
+    margin-top: 0;
+}
