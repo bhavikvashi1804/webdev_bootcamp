@@ -60,3 +60,18 @@ a{
     bottom: 300px;
 
 }
+
+.skill-row{
+    width: 50%;
+    margin: 100px auto 100px auto;
+    text-align: left;
+    line-height: 2;
+}
+
+.code-image{
+    width: 25%;
+}
+
+.chilli-image{
+    width: 25%;
+}
