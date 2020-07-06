@@ -6,7 +6,7 @@ body{
     text-align: center;
 }
 h1{
-    margin: 0 ;
+    margin-top: 50px auto 0px auto ;
     font-family: 'Sacramento', cursive;
     font-size: 5.625 rem;
     /*  font-size: 100% means 16px; */
@@ -17,6 +17,8 @@ h1{
 }
 h2{
     font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    /* same as 2.5 rem */
 
 }
 h3{
