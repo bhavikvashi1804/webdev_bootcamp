@@ -82,3 +82,13 @@ a{
     position: relative;
     left: 20px;
 }
+
+
+.code-skill-desc{
+    clear: left;
+    /* clear means left margin =0 */
+}
+
+.chilli-code-desc{
+    clear: right;
+}
