@@ -66,14 +66,19 @@ a{
     margin: 100px auto 100px auto;
     text-align: left;
     line-height: 2;
+    
 }
 
 .code-image{
     width: 25%;
     float: left;
+    position: relative;
+    right: 20px;
 }
 
 .chilli-image{
     width: 25%;
     float: left;
+    position: relative;
+    right: 20px;
 }
