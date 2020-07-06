@@ -78,7 +78,7 @@ a{
 
 .chilli-image{
     width: 25%;
-    float: left;
+    float: right;
     position: relative;
-    right: 20px;
+    left: 20px;
 }
