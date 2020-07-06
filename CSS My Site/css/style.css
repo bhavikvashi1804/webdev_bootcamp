@@ -1,13 +1,14 @@
 body{
     background-color: cyan;
     font-family: 'Merriweather', serif;
+    font-size: 200%;
     margin: 0;
     text-align: center;
 }
 h1{
     margin: 0 ;
     font-family: 'Sacramento', cursive;
-    font-size: 90px;
+    font-size: 562.54 rem;
     /*  font-size: 100% means 16px; */
     /* 90px = 562.5% */
 
