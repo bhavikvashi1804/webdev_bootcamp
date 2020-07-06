@@ -14,17 +14,25 @@ h1{
 
     /* font-size: 562.5em;  means 1 em = width is width of 'M'  */
     /*  1em = 16 px = 562.5% */
+    color:  #66BFBF;
+    line-height: 2;
 }
 h2{
     font-family: 'Montserrat', sans-serif;
     font-size: 40px;
     /* same as 2.5 rem */
+    color:  #66BFBF;
+    font-weight: normal;
 
 }
 h3{
     font-family: 'Montserrat', sans-serif;
+    color:  #11999E;
 }
 
+a{
+    color:  #11999E;
+}
 
 .top-container{
     background-color: #ff165d;
