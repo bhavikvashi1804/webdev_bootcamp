@@ -70,8 +70,10 @@ a{
 
 .code-image{
     width: 25%;
+    float: left;
 }
 
 .chilli-image{
     width: 25%;
+    float: left;
 }
