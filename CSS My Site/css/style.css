@@ -9,13 +9,14 @@ body{
     text-align: center;
 }
 h1{
-    width: 15%;
-    margin: 0 auto 0 auto;
+    margin: 0 
 }
 
 
 .top-container{
     background-color: #ff165d;
+    position: relative;
+    padding-top: 100px;
    
     
 }
@@ -32,4 +33,18 @@ h1{
 
 .pro{
     text-decoration: underline;
+}
+
+
+.top-cloud{
+    position: absolute;
+    top:50px;
+    right:300px;
+}
+
+.bottom-cloud{
+    position: absolute;
+    left: 300px;
+    bottom: 300px;
+
 }
