@@ -5,28 +5,28 @@
 }
 
 
-h1{
+h1,h2,h3,h4,h5,h6{
     font-family: 'Montserrat-Black', sans-serif; 
-   
-    font-size: 3 rem;
-    line-height: 1.5;
-}
-
-h2{
-    font-family: 'Montserrat-Black', sans-serif; 
-    line-height: 1.5;
-    font-size: 3 rem;
 }
 
 
-h3{
-    font-family: 'Montserrat-Bold' ;
-    font-weight: bold;
-}
+
+
+
 
 p{
     color: #8f8f8f;
 }
+
+
+.section-heading{
+    font-size: 3 rem;
+    line-height: 1.5;
+}
+
+
+/*  big heading */
+
 
 
 .container-fluid{
@@ -85,6 +85,7 @@ body{
 }
 
 
+
 .f-box{
     text-align: center;
     padding: 5%;
@@ -115,6 +116,10 @@ body{
     margin: 20px;
 }
 
+.testimonial-text{
+    line-height: 1.5;
+    font-size: 1.5rem;
+}
 
 #press{
     background-color: #ef8172;
@@ -151,6 +156,10 @@ body{
       text-align: center;
   }
 
+  .price-text{
+      font-size: 3rem;
+      line-height: 1.5;
+  }
 
 
   @media (max-width: 1028px) {
