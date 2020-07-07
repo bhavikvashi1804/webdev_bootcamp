@@ -69,6 +69,8 @@ body{
 .t-img{
     width: 60%;
     transform: rotate(25deg);
+    z-index: -1;
+    position: absolute;
 }
 
 
@@ -76,6 +78,9 @@ body{
 
 #features{
     padding: 7% 15%;
+    background-color: #fff;
+    z-index: 1;
+    position: absolute;
 }
 
 
