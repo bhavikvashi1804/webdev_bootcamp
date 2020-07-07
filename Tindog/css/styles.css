@@ -168,3 +168,31 @@ body{
       
     }
   }
+
+
+
+  /*  download option */
+
+  #cta{
+    background-color: #ff4c68;
+    padding: 7% 15%;
+    text-align: center;
+    font-family: "Montserrat-Black";
+    color: #fff;
+    font-weight: bold;
+    
+  }
+
+
+
+  /* footer */
+#footer{
+    background-color: #fff;
+    text-align: center;
+    
+}
+
+.s-icon{
+    
+    margin: 20px 10px;
+}
