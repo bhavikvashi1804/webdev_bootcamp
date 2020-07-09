@@ -1,2 +1,7 @@
+document.querySelector("button").addEventListener("click",handleClick);
+//this is for 1st button
 
-alert("Hello");
+
+function handleClick(){
+    alert("I got clicked");
+}
