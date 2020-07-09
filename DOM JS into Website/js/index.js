@@ -29,3 +29,22 @@ function myFunction3(){
     //.a to add a background color to the first element in the document with class="a".
     //#a to add a background color to the first element in the document with id="a".
 }
+
+
+function changeColor(){
+    document.getElementById("demo").style.color="#fff";
+}
+
+function changeBGColor(){
+    document.getElementById("demo").style.backgroundColor="#f54";
+}
+
+function changeFontSize(){
+    document.getElementById("demo").style.fontSize="40px";
+    //this property is same as ago in CSS just camel case
+
+}
+
+function changeVisibility(){
+    document.getElementById("demo").style.visibility="hidden";
+}
