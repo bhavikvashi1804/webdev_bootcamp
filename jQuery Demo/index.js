@@ -3,7 +3,16 @@ console.log("This is working");
 
 $(document).ready(function(){
    
-    $("a").attr("href","https://www.amazon.com");
+    $("h1").click(function(){
+        $("h1").css("color","red");
+
+    });
+
+
+    $("button").click(function(){
+        $("h1").css("color","yellow");
+
+    });
    
 });
 
