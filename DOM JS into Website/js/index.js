@@ -75,3 +75,13 @@ function changeText(){
     //innerHTML you can also set tree of tags
     //textContent you can only set the text
 }
+
+
+function changeAttribute(){
+
+    console.log(document.getElementById("demo").attributes);
+    console.log(document.getElementById("demo").getAttribute("href"));
+
+    document.getElementById("demo").setAttribute("href","https://www.amazon.in");
+    console.log(document.getElementById("demo").getAttribute("href"));
+}
