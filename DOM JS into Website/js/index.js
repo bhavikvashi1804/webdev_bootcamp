@@ -13,3 +13,12 @@ function myFunction1(){
 
     }
 }
+
+function myFunction2(){
+    var x=document.getElementsByClassName("a");
+
+    for(var i=0;i<x.length;i++){
+        x[i].innerHTML="This is changed by Class name";
+
+    }
+}
