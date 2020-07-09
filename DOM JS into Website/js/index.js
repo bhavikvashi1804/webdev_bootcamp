@@ -48,3 +48,15 @@ function changeFontSize(){
 function changeVisibility(){
     document.getElementById("demo").style.visibility="hidden";
 }
+
+
+function visibleOnOff(){
+    
+
+    if(document.querySelector("#demo").classList.contains("in-visible")){
+        document.querySelector("#demo").classList.remove("in-visible");
+    }
+    else{
+        document.querySelector("#demo").classList.add("in-visible");
+    }
+}
