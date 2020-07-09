@@ -60,3 +60,18 @@ function visibleOnOff(){
         document.querySelector("#demo").classList.add("in-visible");
     }
 }
+
+
+function changeText(){
+    document.getElementById('demo').innerHTML="Good Night";
+    //document.getElementById('demo').textContent="Good Night";
+    //.innerHTML and .textContent are same
+
+
+    //if you have multiple html tag
+    //<p id="demo"><strong>Hello</strong></p>
+    //innerHTML returns <strong>Hello</strong>
+    //textContent returns Hello
+    //innerHTML you can also set tree of tags
+    //textContent you can only set the text
+}
