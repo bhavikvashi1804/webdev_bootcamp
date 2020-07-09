@@ -13,6 +13,17 @@ $(document).ready(function(){
         $("h1").css("color","yellow");
 
     });
+
+
+    //only for input type
+    $("input").keypress(function(event){
+        console.log((event.key));
+    });
+
+    //for whole page
+    $(document).keypress(function(event){
+        console.log((event.key));
+    });
    
 });
 
