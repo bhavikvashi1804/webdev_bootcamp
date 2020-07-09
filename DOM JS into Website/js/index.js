@@ -22,3 +22,10 @@ function myFunction2(){
 
     }
 }
+
+function myFunction3(){
+    document.querySelector("p").style.backgroundColor = "red";
+    console.log(document.querySelector("p"));
+    //.a to add a background color to the first element in the document with class="a".
+    //#a to add a background color to the first element in the document with id="a".
+}
