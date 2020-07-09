@@ -1,4 +1,6 @@
 console.log("This is working");
 
 
-$("h1").css("color","red");
+$(document).ready(function(){
+    $("h1").css("color","red");
+});
