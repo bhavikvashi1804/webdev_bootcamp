@@ -1,1 +1,5 @@
-document.querySelector("h1").innerHTML="Good Night";
+
+
+function myFunction(){
+    document.getElementById("demo").innerHTML="Good Night";
+}
