@@ -1,16 +1,18 @@
 const express=require("express");
 const bodyParser=require("body-parser");
 const request=require("request");
+const cors = require('cors');
+const path=require('path');
 
-const app=express();
+
+var app=express();
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static("public"));
 
 
 app.get('/',function(req,res){
-    res.send("Server is runing");
+    res.sendFile(__dirname + '/signup.html');
 });
-
-
 
 app.listen(3000,function(){
     console.log("Server is runing on port 3000.")
