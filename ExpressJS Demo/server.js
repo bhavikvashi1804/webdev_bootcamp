@@ -4,7 +4,8 @@ const app= express();
 
 app.get('/',function(request,response){
     //console.log(request);
-    response.send("Hello");
+    response.sendFile(__dirname+"/index.html");
+    //_dirname automatically find the project dir
 });
 
 
