@@ -14,6 +14,12 @@ app.get('/contact',function(request,response){
     response.send("7359794830");
 });
 
+
+app.get('/about',function(request,response){
+    //console.log(request);
+    response.send("Bhavik Vashi");
+});
+
 app.listen(3000,function(){
     console.log("Server is running at port 3000");
 });
