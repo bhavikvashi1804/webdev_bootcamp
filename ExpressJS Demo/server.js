@@ -4,7 +4,14 @@ const app= express();
 
 app.get('/',function(request,response){
     //console.log(request);
-    response.send("Hello");
+    response.send("<h1>Hello</h1>");
+});
+
+
+
+app.get('/contact',function(request,response){
+    //console.log(request);
+    response.send("7359794830");
 });
 
 app.listen(3000,function(){
