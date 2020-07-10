@@ -12,7 +12,8 @@ app.get('/',function(req,res){
 
         response.on("data",function(data){
             const WeatherData=JSON.parse(data);
-            console.log(WeatherData);
+            const temp=WeatherData.main.temp;
+            console.log(temp);
         });
     });
     res.send("Server is runing")
