@@ -14,11 +14,21 @@ app.get('/',function(req,res){
             const WeatherData=JSON.parse(data);
             const temp=WeatherData.main.temp;
             const weatherDesc=WeatherData.weather[0].description;
+            const icon=WeatherData.weather[0].icon;
             console.log(temp);
             console.log(weatherDesc);
+
+            const imageURL="http://openweathermap.org/img/wn/"+icon+"@2x.png";
+            console.log(imageURL);
+             
+
+            res.write("<p>The weather is currently "+weatherDesc+"</p>");
+            res.write("<h1>The temperature in Surat is "+temp+"*C</h1>");
+            res.write("<img src=" + imageURL +">");
+            res.send();
         });
     });
-    res.send("Server is runing")
+    //res.send("Server is runing")
 });
 
 app.listen(3000,function(){
