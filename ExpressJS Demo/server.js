@@ -20,6 +20,12 @@ app.get('/about',function(request,response){
     response.send("Bhavik Vashi");
 });
 
+
+app.get('/location',function(request,response){
+    //console.log(request);
+    response.send("A/8 Janak Vatika Society");
+});
+
 app.listen(3000,function(){
     console.log("Server is running at port 3000");
 });
