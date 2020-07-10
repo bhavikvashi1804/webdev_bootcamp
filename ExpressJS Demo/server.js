@@ -1,5 +1,6 @@
 const express= require("express");
 const app= express();
 
-app.listen(3000);
-//it takes argument as port no
+app.listen(3000,function(){
+    console.log("Server is running at port 3000");
+});
