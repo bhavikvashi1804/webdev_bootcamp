@@ -13,7 +13,7 @@ app.get('/',function(req,res){
         res.send("This is weekend");
    }
    else{
-       res.send("This is workday");
+       res.sendFile(__dirname+"/index.html");
    }
 });
 
