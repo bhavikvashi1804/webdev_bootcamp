@@ -17,6 +17,11 @@ app.get('/',function(req,res){
     res.sendFile(__dirname + '/signup.html');
 });
 
+app.post('/failure',function(req,res){
+    res.redirect("/");
+});
+
+
 app.post('/',function(req,res){
     var fName=req.body.fName;
     var lName=req.body.lName;
@@ -47,6 +52,14 @@ app.post('/',function(req,res){
     };
 
     const request=https.request(url,options,function(response){
+        
+        
+        if(response.statusCode===200){
+            res.sendFile(__dirname+"/success.html");
+        }
+        else{
+            res.sendFile(__dirname+"/failure.html");
+        }
         response.on("data",function(data){
             var response1=JSON.parse(data);
             console.log(response1);
