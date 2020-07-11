@@ -18,7 +18,7 @@ var workItems=[];
 app.get('/',function(req,res){
 
    
-    var day=date();
+    var day=date.getDate();
     res.render('lists', {todayIsDay: day,itemArray:item});
 });
 
