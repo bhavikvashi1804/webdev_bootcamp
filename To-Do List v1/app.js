@@ -12,8 +12,8 @@ app.use(express.static("public"));
 app.set('view engine','ejs');
 
 
-var item=[];
-var workItems=[];
+const item=[];
+const workItems=[];
 
 app.get('/',function(req,res){
 
