@@ -22,6 +22,11 @@ app.get('/',function(req,res){
     res.render('lists', {todayIsDay: day});
 });
 
+app.post('/',function(req,res){
+    var newTask=req.body.taskName;
+    console.log(newTask);
+});
+
 app.listen(3000,function(){
     console.log("Server started at 3000 port");
 });
