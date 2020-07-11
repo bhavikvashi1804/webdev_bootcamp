@@ -4,6 +4,19 @@
         <title>To-Do App</title>
     </head>
     <body>
-        <h1 style="color: yellow;"><%= todayIsDay %></h1>     
+        <h1 style="color: yellow;"><%= todayIsDay %></h1>  
+        
+        <ul>
+            <li>Buy food</li>
+            <li>Cook food</li>
+            <li>Eat food</li>
+        </ul>
+
+        <div>
+            <form action="/" method="POST">
+                <input type="text" name="taskName">
+                <button type="submit" name="button">Add</button>
+            </form>
+        </div>
     </body>
 </html>
