@@ -8,6 +8,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine','ejs');
 
 
+var item="";
+
 app.get('/',function(req,res){
 
     var today=new Date();
@@ -18,13 +20,12 @@ app.get('/',function(req,res){
     };
 
     var day=today.toLocaleDateString("en-US",options);
-
-    res.render('lists', {todayIsDay: day});
+    res.render('lists', {todayIsDay: day,newListItem:item});
 });
 
 app.post('/',function(req,res){
-    var newTask=req.body.taskName;
-    console.log(newTask);
+    item=req.body.taskName;
+    res.redirect("/");
 });
 
 app.listen(3000,function(){
