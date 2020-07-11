@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine','ejs');
 
 
-var item="";
+var item=[];
 
 app.get('/',function(req,res){
 
@@ -20,11 +20,12 @@ app.get('/',function(req,res){
     };
 
     var day=today.toLocaleDateString("en-US",options);
-    res.render('lists', {todayIsDay: day,newListItem:item});
+    res.render('lists', {todayIsDay: day,itemArray:item});
 });
 
 app.post('/',function(req,res){
-    item=req.body.taskName;
+    var item1=req.body.taskName;
+    item.push(item1);
     res.redirect("/");
 });
 

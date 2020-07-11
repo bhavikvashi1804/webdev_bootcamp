@@ -10,7 +10,11 @@
             <li>Buy food</li>
             <li>Cook food</li>
             <li>Eat food</li>
-            <li><%= newListItem%></li>
+            <% for(var i=0;i<itemArray.length;i++){ %>
+                <li><%=itemArray[i]%></li>
+
+            <% } %>
+
         </ul>
 
         <div>
