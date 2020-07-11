@@ -31,9 +31,21 @@ app.get('/work',function(req,res){
 });
 
 app.post('/',function(req,res){
-    var item1=req.body.taskName;
-    item.push(item1);
-    res.redirect("/");
+
+    console.log(req.body);
+
+    if(req.body.button=="Work"){
+        var item1=req.body.taskName;
+        workItems.push(item1);
+        res.redirect("/work");
+    }
+    else{
+        var item1=req.body.taskName;
+        item.push(item1);
+        res.redirect("/");
+    }
+
+    
 });
 
 app.post('/work',function(req,res){

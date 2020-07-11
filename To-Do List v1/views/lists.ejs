@@ -21,9 +21,9 @@
                 </div>                
             <% } %>
 
-            <form class="item" action="/" method="POST">
+            <form class="item"  method="POST" action="/">
                 <input type="text" name="taskName" placeholder="New Item" autocomplete="off">
-                <button type="submit" name="button">+</button>
+                <button type="submit" name="button" value=<%= todayIsDay %>>+</button>
             </form>
         </div>
     
