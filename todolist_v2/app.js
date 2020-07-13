@@ -10,11 +10,13 @@ const app = express();
 app.set('view engine', 'ejs');
 
 
+
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 //connections
-mongoose.connect("mongodb://localhost:27017/todoDB",{useNewUrlParser:true,useUnifiedTopology:true});
+mongoose.connect("mongodb+srv://bhavik:vashi1804@cluster0.hhycf.mongodb.net/todoDB?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology:true});
 
 //schema
 const noteSchema=new mongoose.Schema({
