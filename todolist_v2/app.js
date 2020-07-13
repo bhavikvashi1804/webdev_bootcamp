@@ -3,6 +3,7 @@ const mongoose =require("mongoose");
 const express = require("express");
 const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
+const _=require("lodash");
 
 const app = express();
 
@@ -80,7 +81,7 @@ app.get("/", function(req, res) {
 
 
 app.get("/:customNoteListName",function(req,res){
-  const kListName=req.params.customNoteListName;
+  const kListName=_.capitalize(req.params.customNoteListName);
 
   console.log("page name:"+kListName);
 
