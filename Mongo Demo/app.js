@@ -17,14 +17,13 @@ const fruitsSchema=new mongoose.Schema({
 
 const Fruit=mongoose.model("Fruit",fruitsSchema);
 
-
-const fruit1=new Fruit({  
-    rating:7,
-    review:'Good'
+Fruit.updateOne({_id:'5f0c2fb2a97c020b386833e9'},{name:'Apple White'},function(error){
+    if(error){
+        console.log(error);
+    }
+    else{
+        console.log("Data updated successfully");
+    }
+    mongoose.connection.close();
 });
 
-fruit1.save();
-
-mongoose.connection.close();
-
-Fruit.save
