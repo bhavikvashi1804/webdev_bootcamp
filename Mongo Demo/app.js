@@ -19,13 +19,12 @@ const Fruit=mongoose.model("Fruit",fruitsSchema);
 
 
 
-Fruit.deleteOne({_id:'5f0c2fb2a97c020b386833e9'},function(error){
+Fruit.deleteMany({name:'Apple'},function(error){
     if(error){
         console.log(error);
     }
     else{
-        console.log("Data updated successfully");
+        console.log("Done");
     }
-    mongoose.connection.close();
 });
 
