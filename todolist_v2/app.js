@@ -8,18 +8,49 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-npm 
+
+//connections
+mongoose.connect("mongodb://localhost:27017/todoDB",{useNewUrlParser:true,useUnifiedTopology:true});
+
+//schema
+const noteSchema=new mongoose.Schema({
+  name: {
+      type:String,
+      required:true
+  }
+});
+const Note=mongoose.model("Note",noteSchema);
+
+
+//dummy notes
+const note1=new Note({
+  name:'Buy Book'
+});
+const note2=new Note({
+  name:'Read Book'
+});
+const note3=new Note({
+  name:'Give the exam'
+});
+const defaultNotes=[note1,note2,note3];
+Note.insertMany(defaultNotes,function(error){
+  if(error){
+    console.log(error);
+  }
+  else{
+    console.log("Done");
+  }
+});
+
+
 const items = ["Buy Food", "Cook Food", "Eat Food"];
 const workItems = [];
 
 app.get("/", function(req, res) {
-
-const day = date.getDate();
-
-  res.render("list", {listTitle: day, newListItems: items});
-
+  res.render("list", {listTitle: "Today", newListItems: items});
 });
 
 app.post("/", function(req, res){
