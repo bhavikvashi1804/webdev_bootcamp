@@ -114,11 +114,24 @@ app.get("/:customNoteListName",function(req,res){
 
 app.post("/", function(req, res){
   const item = req.body.newItem;
+  const listName=req.body.list;
   const newNote=new Note({
     name:item
   });
-  newNote.save();
-  res.redirect("/");
+
+  if(listName==="Today"){
+    newNote.save();
+    res.redirect("/");
+  }
+  else{
+    List.findOne({name:listName},function(e,foundlist){
+      foundlist.item.push(newNote);
+      foundlist.save();
+      res.redirect("/"+listName);
+    });
+  }
+  
+  
 });
 
 app.post("/delete", function(req, res){
