@@ -19,6 +19,10 @@ Fruit.find(
            fruits.forEach(function(fruit){
                console.log(fruit.name);
            });
+
+           mongoose.connection.close();
         }
     }
 );
+
+
