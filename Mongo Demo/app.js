@@ -10,22 +10,31 @@ const fruitsSchema=new mongoose.Schema({
 
 const Fruit=mongoose.model("Fruit",fruitsSchema);
 
-const fruit=new Fruit({
-    name:'Apple',
+const kiwi=new Fruit({
+    name:'Kiwi',
+    rating:9,
+    review:'Best for the health'
+});
+
+const banana=new Fruit({
+    name:'Banana',
     rating:7,
-    review:'Good'
-});
-fruit.save();
-
-const personSchema=new mongoose.Schema({
-    name:String,
-    age:Number
+    review:'White color'
 });
 
-const Person=mongoose.model("Person",personSchema);
 
-const person=new Person({
-    name:'Bhavik',
-    age:21
+const orange=new Fruit({
+    name:'Orange',
+    rating:8,
+    review:'Juicy'
 });
-person.save();
+
+Fruit.insertMany([kiwi,banana,orange],function(error){
+    if(error){
+        console.log(error);
+    }
+    else{
+        console.log("Database updated succesfully");
+    }
+});
+
