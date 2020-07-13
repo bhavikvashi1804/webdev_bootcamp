@@ -25,7 +25,7 @@ client.connect(function(err) {
     );
     */
 
-    findDocuments(db,function(){client.close});
+    findDocuments(db,function(){client.close();});
     
 });
 
