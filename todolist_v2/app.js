@@ -47,9 +47,14 @@ Note.insertMany(defaultNotes,function(error){
 });
 */
 
-
-const items = ["Buy Food", "Cook Food", "Eat Food"];
-const workItems = [];
+const listSchema=mongoose.Schema({
+  name: {
+    type:String,
+    required:true,
+  },
+  item:[noteSchema]
+});
+const List=mongoose.model("List",listSchema);
 
 app.get("/", function(req, res) {
   Note.find({},function(err,notes){
@@ -71,6 +76,40 @@ app.get("/", function(req, res) {
     }
   });  
   
+});
+
+
+app.get("/:customNoteListName",function(req,res){
+  const kListName=req.params.customNoteListName;
+
+  console.log("page name:"+kListName);
+
+  List.findOne({name:kListName},function(error,foundList){
+    if(error){
+      console.log(error);
+    }
+    else{
+      if(!foundList){
+        //create new entry in db
+       
+        console.log("Does not exist");
+        const newList=List({
+          name:kListName,
+          item:defaultNotes,
+        });
+        console.log(newList);
+        newList.save();
+        res.redirect("/"+kListName);
+      }else{
+        console.log("Exist");
+        res.render("list",{listTitle:foundList.name,newListItems:foundList.item})
+      }
+    }
+  });
+
+ 
+  
+
 });
 
 app.post("/", function(req, res){
