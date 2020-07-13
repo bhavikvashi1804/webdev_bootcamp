@@ -17,7 +17,9 @@ const fruitsSchema=new mongoose.Schema({
 
 const Fruit=mongoose.model("Fruit",fruitsSchema);
 
-Fruit.updateOne({_id:'5f0c2fb2a97c020b386833e9'},{name:'Apple White'},function(error){
+
+
+Fruit.deleteOne({_id:'5f0c2fb2a97c020b386833e9'},function(error){
     if(error){
         console.log(error);
     }
