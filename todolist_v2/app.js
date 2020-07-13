@@ -36,6 +36,7 @@ const note3=new Note({
   name:'Give the exam'
 });
 const defaultNotes=[note1,note2,note3];
+/*
 Note.insertMany(defaultNotes,function(error){
   if(error){
     console.log(error);
@@ -44,13 +45,32 @@ Note.insertMany(defaultNotes,function(error){
     console.log("Done");
   }
 });
+*/
 
 
 const items = ["Buy Food", "Cook Food", "Eat Food"];
 const workItems = [];
 
 app.get("/", function(req, res) {
-  res.render("list", {listTitle: "Today", newListItems: items});
+  Note.find({},function(err,notes){
+    console.log(notes);
+    //this is for default items
+    if(notes.length===0){
+      Note.insertMany(defaultNotes,function(error){
+        if(error){
+          console.log(error);
+        }
+        else{
+          console.log("Done");
+          res.redirect("/");
+        }
+      });
+    }
+    else{
+      res.render("list", {listTitle: "Today", newListItems: notes});
+    }
+  });  
+  
 });
 
 app.post("/", function(req, res){
