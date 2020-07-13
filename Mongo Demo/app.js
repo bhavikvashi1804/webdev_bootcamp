@@ -10,31 +10,13 @@ const fruitsSchema=new mongoose.Schema({
 
 const Fruit=mongoose.model("Fruit",fruitsSchema);
 
-const kiwi=new Fruit({
-    name:'Kiwi',
-    rating:9,
-    review:'Best for the health'
-});
-
-const banana=new Fruit({
-    name:'Banana',
-    rating:7,
-    review:'White color'
-});
-
-
-const orange=new Fruit({
-    name:'Orange',
-    rating:8,
-    review:'Juicy'
-});
-
-Fruit.insertMany([kiwi,banana,orange],function(error){
-    if(error){
-        console.log(error);
+Fruit.find(
+    function(error,fruits){
+        if(error){
+            console.log(error);
+        }
+        else{
+            console.log(fruits);
+        }
     }
-    else{
-        console.log("Database updated succesfully");
-    }
-});
-
+);
