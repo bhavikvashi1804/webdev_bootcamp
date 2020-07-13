@@ -14,17 +14,26 @@ const fruitsSchema=new mongoose.Schema({
     },
     review:String
 });
-
 const Fruit=mongoose.model("Fruit",fruitsSchema);
 
 
-
-Fruit.deleteMany({name:'Apple'},function(error){
-    if(error){
-        console.log(error);
-    }
-    else{
-        console.log("Done");
-    }
+const personSchema=new mongoose.Schema({
+    name:String,
+    age:Number,
+    favFruit:fruitsSchema
 });
+const Person=mongoose.model("Person",personSchema);
 
+const pineApple=new Fruit({
+    name:'Pine Apple',
+    rating: 7,
+    review:"Sour"
+});
+pineApple.save();
+
+const person1=new Person({
+    name:'Bhavik Vashi',
+    age:21,
+    favFruit:pineApple
+});
+person1.save();
