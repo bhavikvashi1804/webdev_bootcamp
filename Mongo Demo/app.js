@@ -16,12 +16,16 @@ client.connect(function(err) {
 
     const db=client.db('fruitsDB');
 
+    /*
     insertDocuments(
         db,
         function(){
             client.close();
         }
     );
+    */
+
+    findDocuments(db,function(){client.close});
     
 });
 
@@ -60,4 +64,18 @@ const insertDocuments = function(db, callback) {
       console.log(result);
       callback(result);
     });
+}
+
+
+const findDocuments=function(db,callback){
+    const collection=db.collection("fruits");
+
+    collection.find({}).toArray(
+        function(err,fruits){
+            assert.equal(err,null);
+            console.log("No documents found");
+            console.log(fruits);
+            callback(fruits);
+        }
+    );
 }
