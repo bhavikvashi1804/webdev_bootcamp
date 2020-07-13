@@ -16,7 +16,9 @@ Fruit.find(
             console.log(error);
         }
         else{
-            console.log(fruits);
+            for(var i=0;i<fruits.length;i++){
+                console.log(fruits[i].name);
+            }
         }
     }
 );
