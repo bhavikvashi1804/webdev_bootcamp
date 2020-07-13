@@ -24,16 +24,18 @@ const personSchema=new mongoose.Schema({
 });
 const Person=mongoose.model("Person",personSchema);
 
-const pineApple=new Fruit({
-    name:'Pine Apple',
-    rating: 7,
-    review:"Sour"
+const mango=new Fruit({
+    name:'mango',
+    rating: 9,
+    review:"Variety"
 });
-pineApple.save();
+mango.save();
 
-const person1=new Person({
-    name:'Bhavik Vashi',
-    age:21,
-    favFruit:pineApple
+Person.updateOne({name:'Bhavik'},{favFruit:mango},function(error){
+    if(error){
+        console.log(error)
+    }
+    else{
+        console.log("Done");
+    }
 });
-person1.save();
