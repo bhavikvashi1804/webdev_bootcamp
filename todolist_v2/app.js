@@ -53,7 +53,7 @@ const workItems = [];
 
 app.get("/", function(req, res) {
   Note.find({},function(err,notes){
-    console.log(notes);
+    //console.log(notes);
     //this is for default items
     if(notes.length===0){
       Note.insertMany(defaultNotes,function(error){
@@ -81,6 +81,26 @@ app.post("/", function(req, res){
   newNote.save();
   res.redirect("/");
 });
+
+app.post("/delete", function(req, res){
+  
+
+  checkedItemID=req.body.checkbox;
+  console.log(checkedItemID);
+
+  Note.findByIdAndRemove(checkedItemID,function(error){
+    if(error){
+      console.log(error);
+    }
+    else{
+      console.log("Done");
+      res.redirect("/");
+    }
+  });
+
+ 
+});
+
 
 app.get("/work", function(req,res){
   res.render("list", {listTitle: "Work List", newListItems: workItems});
