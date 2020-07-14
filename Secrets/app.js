@@ -4,8 +4,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose=require("mongoose");
-const md5=require("md5");
-
+const bcrypt=require("bcrypt");
+const saltRounds=10;
 
 const app = express();
 
@@ -42,21 +42,31 @@ app.get("/register",function(req,res){
 
 app.post("/register",function(req,res){
 
-    const newUser =new User(
-        {
-            email:req.body.username,
-            password:md5(req.body.password)
-        }
-    );
 
-    newUser.save(function(error){
-        if(error){
-            res.send("Error");
-        }
-        else{
-            res.render("Secrets");
+    
+
+    bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+        // Store hash in your password DB.
+
+        if(!err){
+            const newUser =new User(
+                {
+                    email:req.body.username,
+                    password:hash
+                }
+            );
+        
+            newUser.save(function(error){
+                if(error){
+                    res.send("Error");
+                }
+                else{
+                    res.render("Secrets");
+                }
+            });
         }
     });
+    
 
 });
 
@@ -64,7 +74,8 @@ app.post("/register",function(req,res){
 app.post("/login",function(req,res){
 
     const kEmail=req.body.username;
-    const kPassword=md5(req.body.password);
+    const kPassword=req.body.password;
+
 
     User.findOne(
         {email:kEmail},
@@ -73,13 +84,16 @@ app.post("/login",function(req,res){
                 res.send("Error");
             }
             else{
-                if(foundUser.password===kPassword){
-                    res.render("Secrets");
 
-                }
-                else{
-                    res.send("Please check your email and password");
-                }
+                bcrypt.compare(kPassword, foundUser.password, function(err, result) {
+                    // result == true
+                    if(result){
+                        res.render("Secrets");
+                    }
+                    else{
+                        res.send("Please check your email and password");
+                    }
+                });
             }
         }
     );
