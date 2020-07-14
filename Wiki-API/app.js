@@ -143,6 +143,22 @@ app.route("/posts/:title").get(
       }
     );
   }
+).delete(
+  function(req,res){
+    Post.deleteOne(
+      {
+        title:req.params.title,
+      },
+      function(error){
+        if(error){
+          res.send(error);
+        }
+        else{
+          res.send("Post Deleted Sucessfully");
+        }
+      }
+    );
+  }
 );
 
 
