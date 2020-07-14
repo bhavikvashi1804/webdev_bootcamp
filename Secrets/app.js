@@ -27,8 +27,12 @@ app.use(session({
     cookie: { secure: true }
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 mongoose.connect("mongodb://localhost:27017/userDB",{useNewUrlParser:true,useUnifiedTopology:true});
+mongoose.set("useCreateIndex",true);
 
 const userSchema=mongoose.Schema(
     {
@@ -37,8 +41,14 @@ const userSchema=mongoose.Schema(
     }
 );
 
+userSchema.plugin(passportLocalMongoose);
 //use before create model
 const User=mongoose.model("User",userSchema);
+//PS Local setup
+passport.use(User.createStrategy());
+// use static serialize and deserialize of model for passport session support
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.get("/",function(req,res){
     res.render("home");
@@ -52,9 +62,6 @@ app.get("/register",function(req,res){
 
 
 app.post("/register",function(req,res){
-
-
-    
 
     bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
         // Store hash in your password DB.
