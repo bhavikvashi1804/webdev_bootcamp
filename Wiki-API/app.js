@@ -22,6 +22,20 @@ const postSchema=mongoose.Schema({
 
 const Post=mongoose.model("Post",postSchema);
 
+
+app.get("/posts",function(req,res){
+  Post.find({},function(error,foundPosts){
+    if(error){
+      //console.log(error);
+      res.send("Error");
+    }
+    else{
+      //console.log(foundPosts);
+      res.send(foundPosts);
+    }
+  });
+});
+
 app.listen(3000, function() {
   console.log("Server started on port 3000");
 });
