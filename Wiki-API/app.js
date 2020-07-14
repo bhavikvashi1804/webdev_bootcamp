@@ -98,6 +98,32 @@ app.route("/posts/:title").get(
       }
     );
   }
+).put(
+  function(req,res){
+    const kTitle=req.params.title;
+    Post.update(
+      {
+        title:kTitle
+      },
+      {
+        title:req.body.title,
+        content:req.body.content,
+        //if you donot provide title then it removes old one 
+        //new post will contain only content
+      },
+      {
+        overwrite:true,
+      },
+      function(error){
+        if(error){
+          res.send("Error");
+        }
+        else{
+          res.send("Update Done");
+        }
+      }
+    );
+  }
 );
 
 
