@@ -25,6 +25,8 @@ const userSchema=mongoose.Schema(
         password:String,
     }
 );
+console.log(process.env.secret);
+console.log(process.env.test);
 
 userSchema.plugin(encrypt,{secret:process.env.secret,encryptedFields:['password']});
 //use before create model
