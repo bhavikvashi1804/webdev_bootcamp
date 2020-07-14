@@ -6,6 +6,9 @@ const ejs = require("ejs");
 const mongoose=require("mongoose");
 const bcrypt=require("bcrypt");
 const saltRounds=10;
+const session = require("express-session");
+const passport=require("passport");
+const passportLocalMongoose=require("passport-local-mongoose");
 
 const app = express();
 
@@ -15,6 +18,14 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(express.static("public"));
+
+
+app.use(session({
+    secret: 'ThisisBhavik',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
 
 
 mongoose.connect("mongodb://localhost:27017/userDB",{useNewUrlParser:true,useUnifiedTopology:true});
