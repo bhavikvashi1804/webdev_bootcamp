@@ -23,6 +23,7 @@ const postSchema=mongoose.Schema({
 const Post=mongoose.model("Post",postSchema);
 
 
+//   this for all the posts
 app.route('/posts').get(
   function(req,res){
     Post.find({},function(error,foundPosts){
@@ -67,6 +68,32 @@ app.route('/posts').get(
         else{
           console.log("Deleted All Posts");
           res.send("Deleted All Posts");
+        }
+      }
+    );
+  }
+);
+
+
+//this is for the specific post
+app.route("/posts/:title").get(
+  function(req,res){
+    const kTitle=req.params.title;
+    Post.findOne(
+      {
+        title:kTitle
+      },
+      function(error,onePost){
+        if(error){
+          res.send("Error");
+        }
+        else{
+          if(!onePost){
+            res.send("No Post found");
+          }
+          else{
+            res.send(onePost);
+          }
         }
       }
     );
