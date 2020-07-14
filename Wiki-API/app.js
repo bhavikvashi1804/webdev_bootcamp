@@ -124,6 +124,25 @@ app.route("/posts/:title").get(
       }
     );
   }
+).patch(
+  function(req,res){
+    Post.update(
+      {
+        title:req.params.title
+      },
+      {
+        $set:req.body
+      },
+      function(error){
+        if(error){
+          res.send("Error");
+        }
+        else{
+          res.send("Done");
+        }
+      }
+    );
+  }
 );
 
 
